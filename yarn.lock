@@ -2,10 +2,13 @@
 # yarn lockfile v1
 
 
-"@k35/fp@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@k35/fp/-/fp-1.0.1.tgz#1de3b69d7ee56554c86a78103b1c65df2e0c7862"
-  integrity sha512-mpXtdKJXz/OXsuiLDxnSfIwH3fju5dipS1ni0m3t82uh0Dq8WIQQ9e6tbOTrHIzk3iJoje5zTpL2D46+OHO0yg==
+"@k35/fp@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@k35/fp/-/fp-1.0.2.tgz#ac8a8d57a10f3a55fe52141401582dc69438cd9f"
+  integrity sha512-GbevwaDVATQiBtEFVKu7FvGgSS+TawnJsBaXlvgLUQZlml6Pu4px+oWQXdJM5IXkGY981SoTP0COJq81vpeI+Q==
+  dependencies:
+    "@types/node" "^16.7.13"
+    typescript "^5.6.2"
 
 "@k35/react-external-store@^1.0.2":
   version "1.0.2"
