@@ -1,0 +1,28 @@
+{
+  "name": "@k35/react-external-store-bootstrap-components",
+  "version": "1.0.3",
+  "description": "External Store Components for React",
+  "author": "Pavel Kopychenko",
+  "license": "Apache",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./src",
+    "./dist"
+  ],
+  "devDependencies": {
+    "@k35/react-external-store": "^1.0.2",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.6.2"
+  },
+  "scripts": {
+    "build": "yarn tsc"
+  },
+  "dependencies": {
+    "@k35/fp": "^1.0.1"
+  }
+}

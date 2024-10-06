@@ -1,0 +1,11 @@
+import { ButtonProps, ButtonWithStateProps } from "./Button";
+export declare const AddButton: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AddButtonWithState: (props: ButtonWithStateProps) => import("react/jsx-runtime").JSX.Element;
+export declare const EditButton: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+export declare const EditButtonWithState: (props: ButtonWithStateProps) => import("react/jsx-runtime").JSX.Element;
+export declare const DelButton: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+export declare const DelButtonWithState: (props: ButtonWithStateProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AcceptButton: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+export declare const AcceptButtonWithState: (props: ButtonWithStateProps) => import("react/jsx-runtime").JSX.Element;
+export declare const CancelButton: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+export declare const CancelButtonWithState: (props: ButtonWithStateProps) => import("react/jsx-runtime").JSX.Element;
