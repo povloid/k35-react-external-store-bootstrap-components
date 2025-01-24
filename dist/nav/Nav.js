@@ -1,4 +1,4 @@
-import { jsx as _jsx } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCursor } from "@k35/react-external-store";
 import { useEffect } from "react";
 import { navIsActive, navSetActiveC } from "./NavAppState";
@@ -20,7 +20,7 @@ export var NavItem = function (_a) {
     var state = useCursor(cursor);
     var isAcitve = navIsActive(state, acitveKey);
     var onClick = function () { return cursor.update(navSetActiveC(acitveKey)).push(); };
-    return (_jsx("li", { className: "nav-item", onClick: onClick, children: _jsx("a", { className: "nav-link ".concat(isAcitve ? "active" : ""), "aria-current": "page", style: { cursor: "pointer" }, children: children }) }));
+    return (_jsx("li", { className: "nav-item", onClick: onClick, children: _jsxs("a", { className: "nav-link ".concat(isAcitve ? "active" : ""), "aria-current": "page", style: { cursor: "pointer" }, children: [children, " \"!!!!\""] }) }));
 };
 export var NavBlock = function (_a) {
     var acitveKey = _a.acitveKey, cursor = _a.cursor, children = _a.children;

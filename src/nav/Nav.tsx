@@ -53,7 +53,7 @@ export const NavItem = ({
     return (
         <li className="nav-item" onClick={onClick}>
             <a className={`nav-link ${isAcitve ? "active" : ""}`} aria-current="page" style={{ cursor: "pointer" }}>
-                {children}
+                {children} "!!!!"
             </a>
         </li>
     )
