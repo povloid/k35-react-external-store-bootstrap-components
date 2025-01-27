@@ -5,11 +5,12 @@ export declare const Nav: ({ type, children }: {
     type: "tabs" | "pills";
     children?: ReactNode;
 }) => import("react/jsx-runtime").JSX.Element;
-export declare const NavItem: ({ acitveKey, acitve, cursor, children }: {
+export declare const NavItem: ({ acitveKey, acitve, cursor, children, onChange, }: {
     acitveKey: string;
     acitve?: boolean;
     cursor: Cursor<NavAppState>;
     children?: ReactNode;
+    onChange?: () => void;
 }) => import("react/jsx-runtime").JSX.Element;
 export declare const NavBlock: ({ acitveKey, cursor, children }: {
     acitveKey: string;

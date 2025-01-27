@@ -11,7 +11,7 @@ export var Nav = function (_a) {
     return (_jsx("ul", { className: "nav nav-".concat(type), children: children }));
 };
 export var NavItem = function (_a) {
-    var acitveKey = _a.acitveKey, acitve = _a.acitve, cursor = _a.cursor, children = _a.children;
+    var acitveKey = _a.acitveKey, acitve = _a.acitve, cursor = _a.cursor, children = _a.children, onChange = _a.onChange;
     useEffect(function () {
         if (acitve)
             cursor.update(navSetActiveC(acitveKey)).push();
@@ -19,7 +19,11 @@ export var NavItem = function (_a) {
     }, [acitveKey]);
     var state = useCursor(cursor);
     var isAcitve = navIsActive(state, acitveKey);
-    var onClick = function () { return cursor.update(navSetActiveC(acitveKey)).push(); };
+    var onClick = function () {
+        cursor.update(navSetActiveC(acitveKey)).push();
+        if (onChange)
+            onChange();
+    };
     return (_jsx("li", { className: "nav-item", onClick: onClick, children: _jsx("a", { className: "nav-link ".concat(isAcitve ? "active" : ""), "aria-current": "page", style: { cursor: "pointer" }, children: children }) }));
 };
 export var NavBlock = function (_a) {

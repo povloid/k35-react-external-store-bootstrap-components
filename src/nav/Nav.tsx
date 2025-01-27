@@ -31,12 +31,14 @@ export const NavItem = ({
     acitveKey,
     acitve,
     cursor,
-    children
+    children,
+    onChange,
 }: {
     acitveKey: string;
     acitve?: boolean,
     cursor: Cursor<NavAppState>
-    children?: ReactNode
+    children?: ReactNode,
+    onChange?: () => void
 }) => {
 
     useEffect(() => {
@@ -48,7 +50,10 @@ export const NavItem = ({
 
     const isAcitve = navIsActive(state, acitveKey)
 
-    const onClick = () => cursor.update(navSetActiveC(acitveKey)).push()
+    const onClick = () => {
+        cursor.update(navSetActiveC(acitveKey)).push()
+        if (onChange) onChange()
+    }
 
     return (
         <li className="nav-item" onClick={onClick}>
