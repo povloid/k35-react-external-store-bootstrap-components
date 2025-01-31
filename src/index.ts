@@ -14,6 +14,9 @@ export * from "./icon/IconMdiIname"
 export * from "./input/Input"
 export * from "./input/InputAppState"
 
+export * from "./input/InputDate"
+export * from "./input/InputDateAppState"
+
 export * from "./modal/Modal"
 export * from "./modal/ModalAppState"
 
