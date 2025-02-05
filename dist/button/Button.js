@@ -12,8 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useCursor } from "@k35/react-external-store";
 export var Button = function (_a) {
-    var onClick = _a.onClick, type = _a.type, disabled = _a.disabled, children = _a.children;
-    return (_jsx("button", { type: "button", className: "btn btn-".concat(type || "secondary"), disabled: disabled, onClick: function (e) {
+    var onClick = _a.onClick, type = _a.type, size = _a.size, disabled = _a.disabled, children = _a.children;
+    return (_jsx("button", { type: "button", className: "btn btn-".concat(type || "secondary") + (size ? " btn-".concat(size || "") : ""), disabled: disabled, onClick: function (e) {
             e.stopPropagation();
             if (onClick)
                 onClick();

@@ -9,3 +9,5 @@ export declare const AcceptButton: (props: ButtonProps) => import("react/jsx-run
 export declare const AcceptButtonWithState: (props: ButtonWithStateProps) => import("react/jsx-runtime").JSX.Element;
 export declare const CancelButton: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
 export declare const CancelButtonWithState: (props: ButtonWithStateProps) => import("react/jsx-runtime").JSX.Element;
+export declare const CloseButton: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+export declare const CloseButtonWithState: (props: ButtonWithStateProps) => import("react/jsx-runtime").JSX.Element;

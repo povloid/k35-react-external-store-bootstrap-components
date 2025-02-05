@@ -48,4 +48,11 @@ export var CancelButtonWithState = function (props) {
     var disabled = useCursor(props.cursor).disabled;
     return (_jsx(EditButton, __assign({}, props, { disabled: disabled })));
 };
+export var CloseButton = function (props) {
+    return _jsxs(Button, __assign({}, props, { children: [_jsx(IconMdi, { iname: "close" }), "  \u0417\u0430\u043A\u0440\u044B\u0442\u044C"] }));
+};
+export var CloseButtonWithState = function (props) {
+    var disabled = useCursor(props.cursor).disabled;
+    return (_jsx(EditButton, __assign({}, props, { disabled: disabled })));
+};
 //# sourceMappingURL=StandartButton.js.map

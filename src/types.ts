@@ -6,3 +6,6 @@ export type bootstrapType = "primary"
     | "info"
     | "light"
     | "dark"
+
+
+

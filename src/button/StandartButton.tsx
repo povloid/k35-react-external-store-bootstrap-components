@@ -61,3 +61,15 @@ export const CancelButtonWithState = (props: ButtonWithStateProps) => {
     )
 }
 
+
+export const CloseButton = (props: ButtonProps) =>
+    <Button {...props}><IconMdi iname="close" />  Закрыть</Button>
+
+export const CloseButtonWithState = (props: ButtonWithStateProps) => {
+    const { disabled } = useCursor(props.cursor)
+
+    return (
+        <EditButton {...props} disabled={disabled} />
+    )
+}
+
