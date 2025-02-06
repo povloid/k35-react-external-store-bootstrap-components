@@ -8,19 +8,11 @@ function generateNextModalId() {
 var modalsIds = new Set([]);
 function addModalId(modalId) {
     modalsIds.add(modalId);
-    console.log("Создано модальное окно:", modalId);
+    console.debug("Создано модальное окно:", modalId);
 }
 function deleteModalId(modalId) {
     modalsIds.delete(modalId);
-    console.log("Удалено модальное окно:", modalId);
-}
-function watchModalIds() {
-    if (modalsIds.size === 0) {
-        document.body.classList.add("modal-open");
-    }
-    else {
-        document.body.classList.remove("modal-open");
-    }
+    console.debug("Удалено модальное окно:", modalId);
 }
 export var Modal = function (props) {
     var id = useState(generateNextModalId())[0];
@@ -31,7 +23,14 @@ export var Modal = function (props) {
         };
     }, [id]);
     var show = useCursor(props.cursor).show;
-    watchModalIds();
+    if (show) {
+        document.body.classList.add("modal-open");
+        document.body.style.overflow = "hidden";
+    }
+    else {
+        document.body.classList.remove("modal-open");
+        document.body.style.overflow = "auto";
+    }
     var size = props.size ? "modal-".concat(props.size) : "";
     var centred = props.centred ? "modal-dialog-centered" : "";
     return (_jsx("div", { id: id, tabIndex: -1, "aria-labelledby": "exampleModalLabel", className: show ? "modal fade show" : "modal fade", "aria-hidden": !show, "aria-modal": show, style: (show ? { display: "block", backgroundColor: "rgba(0, 0, 0, 0.2)" } : { display: "none" }), role: show ? "dialog" : undefined, children: _jsx("div", { className: "modal-dialog ".concat(size, " ").concat(centred), children: _jsx("div", { className: "modal-content", children: show ? props.children : null }) }) }));
