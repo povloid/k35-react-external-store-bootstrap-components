@@ -52,7 +52,8 @@ export * from "./paginator/PaginatorView"
 export * from "./period/InputPeriodAppState"
 export * from "./period/InputPeriodView"
 
-export * from "./Panel"
+export * from "./panels/LabelBox"
+export * from "./panels/Panel"
 
 export * from "./types"
 

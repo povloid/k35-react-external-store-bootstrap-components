@@ -1,11 +1,6 @@
-
-import { ReactNode } from "react";
-import { IconMdi } from "./icon/IconMdi";
-import { IconMdiIName } from "./icon/IconMdiIname";
-
-export const Panel = (props: { className?: string; children?: ReactNode }) => {
-    return <div className={"panel " + props.className}>{props.children}</div>
-}
+import { ReactNode } from "react"
+import { IconMdi } from "../icon/IconMdi"
+import { IconMdiIName } from "../icon/IconMdiIname"
 
 export const LabelBox = (props: {
     icon?: IconMdiIName
