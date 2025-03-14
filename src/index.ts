@@ -35,9 +35,7 @@ export * from "./table/TableAppState"
 export * from "./textarea/Textarea"
 export * from "./textarea/TextareaAppState"
 
-export * from "./filter-by/FilterByAppState"
-export * from "./filter-by/FilterByService"
-export * from "./filter-by/FilterByViews"
+export * from "./filters"
 
 export * from "./home/HomeButton"
 export * from "./home/HomeNavBarItem"
