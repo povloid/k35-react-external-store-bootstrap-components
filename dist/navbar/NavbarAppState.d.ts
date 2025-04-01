@@ -17,3 +17,6 @@ export interface NavbarAppState<T extends string> {
     items: NavbarItemState<T>[];
     rightItems: NavbarItemState<T>[];
 }
+export declare const navbarSetActive: <T extends string>(state: NavbarAppState<T>, activeItem: NavbarItemState<T>) => NavbarAppState<T>;
+export declare const navbarSetActiveC: <T extends string>(a2: NavbarItemState<T>) => (a1: NavbarAppState<T>) => NavbarAppState<T>;
+export declare const navbarSetupActivesFromWindow: <T extends string>(state: NavbarAppState<T>) => NavbarAppState<T>;

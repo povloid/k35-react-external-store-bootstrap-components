@@ -1,6 +1,6 @@
 import { Cursor, useCursor } from "@k35/react-external-store";
-import { ReactNode } from "react";
-import { NavbarAppState, NavbarDropdownMenuItemState, NavbarItemState } from "./NavbarAppState";
+import { ReactNode, useEffect } from "react";
+import { NavbarAppState, NavbarDropdownMenuItemState, NavbarItemState, navbarSetActiveC, navbarSetupActivesFromWindow } from "./NavbarAppState";
 
 export const Navbar = <T extends string,>(props: {
     brand: {
@@ -11,6 +11,10 @@ export const Navbar = <T extends string,>(props: {
 }) => {
     const { cursor } = props
     const state = useCursor(cursor)
+
+    useEffect(() => {
+        cursor.update(navbarSetupActivesFromWindow).push()
+    }, [cursor])
 
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -23,14 +27,14 @@ export const Navbar = <T extends string,>(props: {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        {state.items.map(selectItemByType)}
+                        {state.items.map((o, i) => selectItemByType(cursor, o, i))}
                     </ul>
 
                     {state.rightItems.length === 0 ?
                         null :
                         <div>
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                {state.rightItems.map(selectItemByType)}
+                                {state.rightItems.map((o, i) => selectItemByType(cursor, o, i))}
                             </ul>
                         </div>}
                 </div>
@@ -38,31 +42,74 @@ export const Navbar = <T extends string,>(props: {
         </nav>)
 };
 
-const selectItemByType = <T extends string,>(item: NavbarItemState<T>, i: number) => {
+const selectItemByType = <T extends string,>(cursor: Cursor<NavbarAppState<T>>, item: NavbarItemState<T>, i: number) => {
     switch (item.type) {
         case "item":
-            return <NavbarItem key={i} item={item} />
+            return <NavbarItem key={i} item={item} cursor={cursor} />
         case "dropdown":
-            return <NavbarDropdown key={i} item={item} />
+            return <NavbarDropdown key={i} item={item} cursor={cursor} />
     }
 }
 
-const NavbarItem = <T extends string,>({ item }: { item: NavbarItemState<T> }) =>
-    <li className="nav-item">
-        <a className={"nav-link" + (item.active ? " active" : "")} href={item.href}>{item.text}</a>
-    </li>
+const NavbarItem = <T extends string,>({
+    cursor,
+    item
+}: {
+    cursor: Cursor<NavbarAppState<T>>,
+    item: NavbarItemState<T>
+}) => {
 
-const NavbarDropdown = <T extends string,>({ item }: { item: NavbarItemState<T> }) =>
-    <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="# " role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            {item.text}
-        </a>
-        <ul className="dropdown-menu">
-            {item.menu?.map((item, i) => <NavbarDropdownMenuItem key={i} menuItem={item} />)}
-        </ul>
-    </li>
+    useCursor(cursor)
 
-const NavbarDropdownMenuItem = <T extends string,>({ menuItem }: { menuItem: NavbarDropdownMenuItemState<T> }) => {
+    const active = item.active
+
+    const onClick = () => {
+        cursor.update(navbarSetActiveC(item)).push()
+    }
+
+    return (
+        <li className="nav-item">
+            <a className={"nav-link" + (active ? " active" : "")} href={item.href}
+                onClick={onClick}>{item.text}</a>
+        </li>
+    )
+}
+
+const NavbarDropdown = <T extends string,>({
+    cursor,
+    item
+}: {
+    cursor: Cursor<NavbarAppState<T>>,
+    item: NavbarItemState<T>
+}) => {
+
+    useCursor(cursor)
+
+    const onClick = () => cursor.update(navbarSetActiveC(item)).push()
+
+    return (
+        <li className="nav-item dropdown">
+            <a className="nav-link dropdown-toggle" href="# " role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                onClick={onClick}>
+                {item.text}
+            </a>
+            <ul className="dropdown-menu">
+                {item.menu?.map((item, i) => <NavbarDropdownMenuItem key={i} menuItem={item} cursor={cursor} />)}
+            </ul>
+        </li>
+    )
+}
+
+const NavbarDropdownMenuItem = <T extends string,>({
+    cursor,
+    menuItem
+}: {
+    cursor: Cursor<NavbarAppState<T>>
+    menuItem: NavbarDropdownMenuItemState<T>
+}) => {
+
+    useCursor(cursor)
+
     switch (menuItem.type) {
         case "item":
             return <li><a className="dropdown-item" href={menuItem.href}>{menuItem.text}</a></li>

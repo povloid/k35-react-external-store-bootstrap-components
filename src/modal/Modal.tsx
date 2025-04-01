@@ -29,7 +29,7 @@ function deleteModalId(modalId: string): void {
 }
 
 export const Modal = (props: {
-    size?: "xl" | "lg" | "sm"
+    size?: "xl" | "lg" | "sm" | "fullscreen"
     centred?: boolean
     cursor: Cursor<ModalAppState>
     children?: ReactNode

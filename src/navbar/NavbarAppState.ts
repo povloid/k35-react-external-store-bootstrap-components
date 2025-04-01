@@ -1,3 +1,4 @@
+import { curry2Right } from "@k35/fp"
 import { ReactNode } from "react"
 
 export type NavbarDropdownMenuItemType = "divider" | "item"
@@ -23,5 +24,25 @@ export interface NavbarAppState<T extends string> {
     rightItems: NavbarItemState<T>[];
 }
 
+export const navbarSetActive = <T extends string>(
+    state: NavbarAppState<T>,
+    activeItem: NavbarItemState<T>
+): NavbarAppState<T> => {
 
+    const items = state.items.map(item => ({ ...item, active: item.href === activeItem.href }))
+
+    return { ...state, items }
+}
+
+export const navbarSetActiveC = curry2Right(navbarSetActive)
+
+
+export const navbarSetupActivesFromWindow = <T extends string>(
+    state: NavbarAppState<T>
+): NavbarAppState<T> => {
+
+    const items = state.items.map(item => ({ ...item, active: item.href === window.location.hash }))
+
+    return { ...state, items }
+}
 
