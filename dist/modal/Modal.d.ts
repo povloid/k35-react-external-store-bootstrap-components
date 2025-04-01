@@ -2,7 +2,7 @@ import { Cursor } from "@k35/react-external-store";
 import { ReactNode } from "react";
 import { ModalAppState } from "./ModalAppState";
 export declare const Modal: (props: {
-    size?: "xl" | "lg" | "sm";
+    size?: "xl" | "lg" | "sm" | "fullscreen";
     centred?: boolean;
     cursor: Cursor<ModalAppState>;
     children?: ReactNode;
