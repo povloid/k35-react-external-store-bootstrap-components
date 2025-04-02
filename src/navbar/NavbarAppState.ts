@@ -46,3 +46,5 @@ export const navbarSetupActivesFromWindow = <T extends string>(
     return { ...state, items }
 }
 
+export const navbarGetCurrentDefaultScreen = <T extends string>(state: NavbarAppState<T>, defaultScreen: T) =>
+    state.items.map(o => o.href as T).find(o => o === window.location.hash) ?? defaultScreen

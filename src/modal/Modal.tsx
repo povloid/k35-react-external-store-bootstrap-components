@@ -69,7 +69,11 @@ export const Modal = (props: {
             className={show ? "modal fade show" : "modal fade"}
             aria-hidden={!show}
             aria-modal={show}
-            style={(show ? { display: "block", backgroundColor: "rgba(0, 0, 0, 0.2)" } : { display: "none" })}
+            style={(show ? {
+                display: "block",
+                backgroundColor: "rgba(0, 0, 0, 0.2)",
+                ...(props.size === "fullscreen" ? { padding: 0 } : {})
+            } : { display: "none" })}
             role={show ? "dialog" : undefined}
         >
             <div className={`modal-dialog ${size} ${centred}`}>

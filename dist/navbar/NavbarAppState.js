@@ -19,4 +19,5 @@ export var navbarSetupActivesFromWindow = function (state) {
     var items = state.items.map(function (item) { return (__assign(__assign({}, item), { active: item.href === window.location.hash })); });
     return __assign(__assign({}, state), { items: items });
 };
+export var navbarGetCurrentDefaultScreen = function (state, defaultScreen) { var _a; return (_a = state.items.map(function (o) { return o.href; }).find(function (o) { return o === window.location.hash; })) !== null && _a !== void 0 ? _a : defaultScreen; };
 //# sourceMappingURL=NavbarAppState.js.map
