@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCursor } from "@k35/react-external-store";
 import { useEffect, useState } from "react";
@@ -33,7 +44,7 @@ export var Modal = function (props) {
     }
     var size = props.size ? "modal-".concat(props.size) : "";
     var centred = props.centred ? "modal-dialog-centered" : "";
-    return (_jsx("div", { id: id, tabIndex: -1, "aria-labelledby": "exampleModalLabel", className: show ? "modal fade show" : "modal fade", "aria-hidden": !show, "aria-modal": show, style: (show ? { display: "block", backgroundColor: "rgba(0, 0, 0, 0.2)" } : { display: "none" }), role: show ? "dialog" : undefined, children: _jsx("div", { className: "modal-dialog ".concat(size, " ").concat(centred), children: _jsx("div", { className: "modal-content", children: show ? props.children : null }) }) }));
+    return (_jsx("div", { id: id, tabIndex: -1, "aria-labelledby": "exampleModalLabel", className: show ? "modal fade show" : "modal fade", "aria-hidden": !show, "aria-modal": show, style: (show ? __assign({ display: "block", backgroundColor: "rgba(0, 0, 0, 0.2)" }, (props.size === "fullscreen" ? { padding: 0 } : {})) : { display: "none" }), role: show ? "dialog" : undefined, children: _jsx("div", { className: "modal-dialog ".concat(size, " ").concat(centred), children: _jsx("div", { className: "modal-content", children: show ? props.children : null }) }) }));
 };
 export var ModalHeader = function (props) {
     return (_jsxs("div", { className: "modal-header", children: [_jsx("h1", { className: "modal-title fs-5", id: "exampleModalLabel", children: props.children || "Title" }), props.onClose
