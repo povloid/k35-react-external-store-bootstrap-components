@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { curry2Right } from "@k35/fp";
+import { asUpdate, curry2Right } from "@k35/fp";
 export var navAppStateInit = {
     active: "none",
 };
@@ -18,4 +18,5 @@ export var navIsActive = function (state, acitve) {
 };
 export var navSetActive = function (state, active) { return (__assign(__assign({}, state), { active: active })); };
 export var navSetActiveC = curry2Right(navSetActive);
+export var navSetActiveU = asUpdate(navSetActive);
 //# sourceMappingURL=NavAppState.js.map

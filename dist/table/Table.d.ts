@@ -7,9 +7,10 @@ export type ItemRender<T> = (props: {
     c: Cursor<T>;
     cc: Cursor<T>[];
     tc: Cursor<TableAppState<T>>;
-}) => ReactNode;
+}) => JSX.Element;
 export declare const Table: <T>(props: {
     itemRender?: ItemRender<T>;
     thead?: ReactNode;
     cursor: Cursor<TableAppState<T>>;
+    hower?: boolean;
 }) => import("react/jsx-runtime").JSX.Element;
