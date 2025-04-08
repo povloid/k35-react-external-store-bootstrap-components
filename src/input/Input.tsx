@@ -27,14 +27,17 @@ export const Input = (props: {
     placeholder?: string;
     cursor: Cursor<InputAppState>;
     autoComplete?: HTMLInputAutoCompleteAttribute
+    onChange?: () => void
 }) => {
     const { cursor } = props;
     const state = useCursor(cursor);
 
     const value = inputValue(state);
 
-    const onChange = (e: { target: { value: string } }) =>
+    const onChange = (e: { target: { value: string } }) => {
         cursor.update((state) => inputSetValue(state, e.target.value)).push();
+        if (props.onChange) props.onChange()
+    }
 
     return (
         <input className="form-control"

@@ -8,4 +8,5 @@ export declare const Input: (props: {
     placeholder?: string;
     cursor: Cursor<InputAppState>;
     autoComplete?: HTMLInputAutoCompleteAttribute;
+    onChange?: () => void;
 }) => import("react/jsx-runtime").JSX.Element;
