@@ -53,5 +53,6 @@ export * from "./period/InputPeriodView"
 export * from "./panels/LabelBox"
 export * from "./panels/Panel"
 
-export * from "./types"
+export * from "./currency/CurrencyView"
 
+export * from "./types"
