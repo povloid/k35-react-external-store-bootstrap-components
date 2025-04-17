@@ -1,12 +1,9 @@
-import { Cursor, ExternalStoreCursor, useCursor } from "@k35/react-external-store"
-import { Key, ReactNode } from "react"
-import { TableAppState } from "./TableAppState"
+import { Cursor, ExternalStoreCursor, useCursor } from "@k35/react-external-store";
+import { ReactNode } from "react";
+import { TableAppState } from "./TableAppState";
 
 
-export type ItemRender<T> = {
-    getKey: (o: T) => Key
-    Render: (props: { o: T, i: number, c: Cursor<T>, cc: Cursor<T>[], tc: Cursor<TableAppState<T>> }) => ReactNode
-}
+export type ItemRender<T> = (props: { o: T, i: number, c: Cursor<T>, cc: Cursor<T>[], tc: Cursor<TableAppState<T>> }) => JSX.Element
 
 
 
@@ -19,11 +16,8 @@ export const Table = <T,>(props: {
 
     const { columns, items } = useCursor(props.cursor)
 
-    const ItemRender: ItemRender<T> = props.itemRender || {
-        getKey: (o: T) => "" + o,
-        Render: (({ o, i }: { o: T, i: number }) =>
-            <tr key={i}><td colSpan={columns?.length}>{`[${i}] ${o}`}</td></tr>)
-    }
+    const ItemRender: ItemRender<T> = props.itemRender
+        || (({ o, i }: { o: T, i: number }) => <tr key={i}><td colSpan={columns?.length}>{`[${i}] ${o}`}</td></tr>)
 
     return (
         <div className="table-responsive">
@@ -60,8 +54,7 @@ export const Table = <T,>(props: {
     )
 }
 
-
-const createRenders = <T,>(cursor: Cursor<TableAppState<T>>, items: T[], { getKey, Render }: ItemRender<T>) => {
+const createRenders = <T,>(cursor: Cursor<TableAppState<T>>, items: T[], ItemRender: ItemRender<T>) => {
 
     const cc = items.map((o, i) =>
         new ExternalStoreCursor(
@@ -70,6 +63,6 @@ const createRenders = <T,>(cursor: Cursor<TableAppState<T>>, items: T[], { getKe
             (state, newItem) => ({ ...state, items: state.items.slice().map((item, ii) => ii === i ? newItem : item) })))
 
     return items.map((o, i) => {
-        return <Render key={getKey(o)} o={o} i={i} c={cc[i]} cc={cc} tc={cursor} />
+        return <ItemRender key={i} o={o} i={i} c={cc[i]} cc={cc} tc={cursor} />
     })
 }

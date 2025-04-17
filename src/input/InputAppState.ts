@@ -1,4 +1,4 @@
-import { curry2Right } from "@k35/fp";
+import { asUpdate, curry2Right } from "@k35/fp";
 
 export type InputAppState = string
 
@@ -12,4 +12,5 @@ export const inputValueOrUndefinedWhenEmpty = inputValueOrUndefined
 
 export const inputSetValue = (state: InputAppState, value?: string): InputAppState => value || "";
 export const inputSetValueC = curry2Right(inputSetValue)
+export const inputSetValueU = asUpdate(inputSetValue)
 

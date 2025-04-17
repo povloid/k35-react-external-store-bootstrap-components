@@ -1,18 +1,20 @@
-import { curry2Right } from "@k35/fp";
+import { asUpdate, curry2Right } from "@k35/fp";
 
 export interface NavAppState {
-  active: string;
+    active: string;
 }
 
 export const navAppStateInit = {
-  active: "none",
+    active: "none",
 };
 
 export const navIsActive = (state: NavAppState, acitve: string): boolean =>
-  state.active === acitve;
+    state.active === acitve;
 
 export const navSetActive = (
-  state: NavAppState,
-  active: string,
+    state: NavAppState,
+    active: string,
 ): NavAppState => ({ ...state, active: active });
+
 export const navSetActiveC = curry2Right(navSetActive);
+export const navSetActiveU = asUpdate(navSetActive);

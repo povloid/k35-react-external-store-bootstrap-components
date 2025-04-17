@@ -5,3 +5,4 @@ export declare const inputValueOrUndefined: (state: InputAppState) => string | u
 export declare const inputValueOrUndefinedWhenEmpty: (state: InputAppState) => string | undefined;
 export declare const inputSetValue: (state: InputAppState, value?: string) => InputAppState;
 export declare const inputSetValueC: (a2: string | undefined) => (a1: string) => string;
+export declare const inputSetValueU: (arg1: string) => string;

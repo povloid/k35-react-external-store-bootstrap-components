@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { curry2Right } from "@k35/fp";
+import { asUpdate, curry2Right } from "@k35/fp";
 export var years = Array(256).map(function (_, i) { return i + 2050; });
 export var YEAR_MIN = years[0];
 export var YEAR_MAX = years[years.length - 1];
@@ -23,8 +23,11 @@ export var inputPeriodAppStateInit = {
 export var inputPeriodGetValue = function (state) { return (__assign({}, state)); };
 export var inputPeriodSetValue = function (_, state) { return (__assign({}, state)); };
 export var inputPeriodSetValueC = curry2Right(inputPeriodSetValue);
+export var inputPeriodSetValueU = asUpdate(inputPeriodSetValue);
 export var inputPeriodSetYear = function (state, year) { return (__assign(__assign({}, state), { year: year })); };
 export var inputPeriodSetYearC = curry2Right(inputPeriodSetYear);
+export var inputPeriodSetYearU = asUpdate(inputPeriodSetYear);
 export var inputPeriodSetMonth = function (state, month) { return (__assign(__assign({}, state), { month: month })); };
 export var inputPeriodSetMonthC = curry2Right(inputPeriodSetMonth);
+export var inputPeriodSetMonthU = asUpdate(inputPeriodSetMonth);
 //# sourceMappingURL=InputPeriodAppState.js.map

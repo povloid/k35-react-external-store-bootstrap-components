@@ -7,3 +7,4 @@ export declare const navAppStateInit: {
 export declare const navIsActive: (state: NavAppState, acitve: string) => boolean;
 export declare const navSetActive: (state: NavAppState, active: string) => NavAppState;
 export declare const navSetActiveC: (a2: string) => (a1: NavAppState) => NavAppState;
+export declare const navSetActiveU: (arg2: string) => (arg1: NavAppState) => NavAppState;

@@ -17,5 +17,11 @@ export declare const alertsAddC: (a2: {
     message?: string;
     id?: string;
 }) => (a1: AlertsAppState) => AlertsAppState;
+export declare const alertsAddU: (arg2: {
+    type: bootstrapType;
+    message?: string;
+    id?: string;
+}) => (arg1: AlertsAppState) => AlertsAppState;
 export declare const alertsDel: (alerts: AlertsAppState, alertId: string) => AlertsAppState;
 export declare const alertsDelC: (a2: string) => (a1: AlertsAppState) => AlertsAppState;
+export declare const alertsDelU: (arg2: string) => (arg1: AlertsAppState) => AlertsAppState;

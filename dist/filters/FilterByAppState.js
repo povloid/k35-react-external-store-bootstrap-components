@@ -9,11 +9,12 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { curry2Right } from "@k35/fp";
+import { asUpdate, curry2Right } from "@k35/fp";
 export var fileterByIsActive = function (state) { return state.isActive; };
 export var fileterByIsNotActive = function (state) { return !state.isActive; };
 export var fileterBySetActive = function (state) { return (__assign(__assign({}, state), { isActive: true })); };
 export var fileterBySetNotActive = function (state) { return (__assign(__assign({}, state), { isActive: false })); };
 export var fileterBySetActiveAs = function (state, isActive) { return (__assign(__assign({}, state), { isActive: isActive })); };
 export var fileterBySetActiveAsC = curry2Right(fileterBySetActiveAs);
+export var fileterBySetActiveAsU = asUpdate(fileterBySetActiveAs);
 //# sourceMappingURL=FilterByAppState.js.map
