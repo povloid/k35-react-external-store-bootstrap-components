@@ -3,6 +3,12 @@ import { ReactNode } from "react";
 import { TableAppState } from "./TableAppState";
 
 
+let keyIndex = 0
+
+function generateKey(keySuffix: string): string {
+    return `${keyIndex++}-${keySuffix}`
+}
+
 export type ItemRender<T> = (props: { o: T, i: number, c: Cursor<T>, cc: Cursor<T>[], tc: Cursor<TableAppState<T>> }) => JSX.Element
 
 
@@ -28,7 +34,7 @@ export const Table = <T,>(props: {
                         <thead>
                             <tr>
                                 {columns.map((o, i) => (
-                                    <th key={i} scope="col">
+                                    <th key={generateKey("table-column")} scope="col">
                                         {o.text}
                                     </th>
                                 ))}
@@ -63,6 +69,6 @@ const createRenders = <T,>(cursor: Cursor<TableAppState<T>>, items: T[], ItemRen
             (state, newItem) => ({ ...state, items: state.items.slice().map((item, ii) => ii === i ? newItem : item) })))
 
     return items.map((o, i) => {
-        return <ItemRender key={i} o={o} i={i} c={cc[i]} cc={cc} tc={cursor} />
+        return <ItemRender key={generateKey("table-item")} o={o} i={i} c={cc[i]} cc={cc} tc={cursor} />
     })
 }
