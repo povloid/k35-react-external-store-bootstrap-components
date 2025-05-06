@@ -21,7 +21,7 @@ export var FiltersButton = function (_a) {
     var activeFilters = service.services.filter(function (o) { return o.isActive(); });
     var notActiveFilters = service.services.filter(function (o) { return !o.isActive(); });
     return (_jsxs("div", { className: "btn-group ms-1", children: [_jsxs("button", { type: "button", className: "btn btn-secondary dropdown-toggle", "data-bs-toggle": "dropdown", "aria-expanded": "false", children: [_jsx(IconMdi, { iname: "filter" }), " \u0424\u0438\u043B\u044C\u0442\u0440"] }), _jsx("ul", { className: "dropdown-menu", children: __spreadArray(__spreadArray(__spreadArray([], notActiveFilters.map(function (o, i) {
-                    var title = o.getFilterCursor().getSnapshot().title;
+                    var title = o.getFilterCursor().get().title;
                     var onClick = function () {
                         o.getFilterCursor().update(fileterBySetActive).push();
                         service.cursor.push();

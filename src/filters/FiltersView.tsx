@@ -46,7 +46,7 @@ export const FiltersButton = <T,>({
             <ul className="dropdown-menu">
                 {[
                     ...notActiveFilters.map((o, i) => {
-                        const { title } = o.getFilterCursor().getSnapshot()
+                        const { title } = o.getFilterCursor().get()
 
                         const onClick = () => {
                             o.getFilterCursor().update(fileterBySetActive).push()
