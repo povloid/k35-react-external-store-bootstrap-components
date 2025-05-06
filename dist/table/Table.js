@@ -16,14 +16,24 @@ function generateKey(keySuffix) {
     return "".concat(keyIndex++, "-").concat(keySuffix);
 }
 export var Table = function (props) {
-    var _a = useCursor(props.cursor), columns = _a.columns, items = _a.items;
+    var _a, _b;
+    var _c = useCursor(props.cursor), columns = _c.columns, items = _c.items;
     var ItemRender = props.itemRender
         || (function (_a) {
             var o = _a.o, i = _a.i;
             return _jsx("tr", { children: _jsx("td", { colSpan: columns === null || columns === void 0 ? void 0 : columns.length, children: "[".concat(i, "] ").concat(o) }) }, i);
         });
-    return (_jsx("div", { className: "table-responsive", children: _jsxs("table", { className: "table" + (props.hower ? " table-hover" : ""), children: [columns ? (_jsx("thead", { children: _jsx("tr", { children: columns.map(function (o, i) { return (_jsx("th", { scope: "col", children: o.text }, generateKey("table-column"))); }) }) })) :
-                    props.thead, _jsx("tbody", { children: items.length > 0 ? (createRenders(props.cursor, items, ItemRender)) : (_jsx("tr", { children: _jsx("td", { colSpan: columns === null || columns === void 0 ? void 0 : columns.length, children: "\u043D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445" }) })) })] }) }));
+    var responsiveCss = props.responsive === "all"
+        ? "table-responsive"
+        : (_a = props.responsive) === null || _a === void 0 ? void 0 : _a.map(function (o) { return o === "table-responsive-".concat(o); }).join(" ");
+    var tableCss = "table"
+        + (props.hower ? " table-hover" : "")
+        + (props.sm ? " table-sm" : "")
+        + (props.bordered ? " table-bordered" : "")
+        + (props.borderless ? " table-borderless" : "");
+    var theadTypeCss = props.theadType && "table-".concat(props.theadType);
+    return (_jsx("div", { className: responsiveCss, children: _jsxs("table", { className: tableCss, children: [(_b = props.caption) !== null && _b !== void 0 ? _b : _jsx("caption", { children: props.caption }), _jsx("thead", { className: theadTypeCss, children: columns
+                        ? (_jsx("tr", { children: columns.map(function (o, i) { return (_jsx("th", { scope: "col", children: o.text }, generateKey("table-column"))); }) })) : (props.thead) }), _jsx("tbody", { children: items.length > 0 ? (createRenders(props.cursor, items, ItemRender)) : (_jsx("tr", { children: _jsx("td", { colSpan: columns === null || columns === void 0 ? void 0 : columns.length, children: "\u043D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445" }) })) })] }) }));
 };
 var createRenders = function (cursor, items, ItemRender) {
     var cc = items.map(function (o, i) {

@@ -55,4 +55,6 @@ export * from "./panels/Panel"
 
 export * from "./currency/CurrencyView"
 
+export * from "./popover/Popover"
+
 export * from "./types"

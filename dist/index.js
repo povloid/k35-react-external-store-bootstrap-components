@@ -35,5 +35,6 @@ export * from "./period/InputPeriodView";
 export * from "./panels/LabelBox";
 export * from "./panels/Panel";
 export * from "./currency/CurrencyView";
+export * from "./popover/Popover";
 export * from "./types";
 //# sourceMappingURL=index.js.map

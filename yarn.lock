@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@k35/fp@^1.0.2":
+"@k35/fp@^1.1.0":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@k35/fp/-/fp-1.0.3.tgz#d50e993310d4d1213563d5070987ddc97f48c173"
   integrity sha512-11bjgSpMY148vLu1LgXSofxYCNY1U/97cv6oS+Ox1iMC0qfGjGrbcgvIxEVXVX9y+f281jnX6bGUDK+wBFCbLQ==
@@ -10,7 +10,7 @@
     "@types/node" "^16.7.13"
     typescript "^5.6.2"
 
-"@k35/react-external-store@^1.0.2":
+"@k35/react-external-store@^1.1.0":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@k35/react-external-store/-/react-external-store-1.0.2.tgz#c92c6c5361a12e6f09ca24bc0956c4d078a81693"
   integrity sha512-UXckQWinSLfUCOi713BUVceGRAhLAe6YZnGONFifPyUqV+9z411fI/gd1f+ZZIj6RMLU0pBd9xgxAwuakHoNRQ==
