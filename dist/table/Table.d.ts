@@ -20,5 +20,6 @@ export declare const Table: <T>(props: {
     sm?: boolean;
     bordered?: boolean;
     borderless?: boolean;
+    className?: string;
     caption?: ReactNode;
 }) => import("react/jsx-runtime").JSX.Element;
