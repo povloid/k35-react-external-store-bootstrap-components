@@ -10,6 +10,8 @@ export var Input = function (props) {
         if (props.onChange)
             props.onChange();
     };
-    return (_jsx("input", { className: "form-control", id: props.id, value: value, onChange: onChange, type: props.type, placeholder: props.placeholder, autoComplete: props.autoComplete }));
+    var className = "form-control"
+        + (props.size ? " form-control-".concat(props.size) : "");
+    return (_jsx("input", { className: className, id: props.id, value: value, onChange: onChange, type: props.type, placeholder: props.placeholder, autoComplete: props.autoComplete, min: props.min, max: props.max }));
 };
 //# sourceMappingURL=Input.js.map

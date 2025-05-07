@@ -9,4 +9,7 @@ export declare const Input: (props: {
     cursor: Cursor<InputAppState>;
     autoComplete?: HTMLInputAutoCompleteAttribute;
     onChange?: () => void;
+    size?: "xl" | "lg" | "sm";
+    min?: number;
+    max?: number;
 }) => import("react/jsx-runtime").JSX.Element;

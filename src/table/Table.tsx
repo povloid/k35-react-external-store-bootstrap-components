@@ -26,6 +26,7 @@ export const Table = <T,>(props: {
     sm?: boolean
     bordered?: boolean
     borderless?: boolean
+    className?: string
     caption?: ReactNode
 }) => {
 
@@ -36,13 +37,14 @@ export const Table = <T,>(props: {
 
     const responsiveCss = props.responsive === "all"
         ? "table-responsive"
-        : props.responsive?.map(o => o === `table-responsive-${o}`).join(" ")
+        : props.responsive?.map(o => `table-responsive-${o}`).join(" ")
 
     const tableCss = "table"
         + (props.hower ? " table-hover" : "")
         + (props.sm ? " table-sm" : "")
         + (props.bordered ? " table-bordered" : "")
         + (props.borderless ? " table-borderless" : "")
+        + (props.className ? " " + props.className : "")
 
 
     const theadTypeCss = props.theadType && `table-${props.theadType}`

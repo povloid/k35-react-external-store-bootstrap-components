@@ -25,12 +25,13 @@ export var Table = function (props) {
         });
     var responsiveCss = props.responsive === "all"
         ? "table-responsive"
-        : (_a = props.responsive) === null || _a === void 0 ? void 0 : _a.map(function (o) { return o === "table-responsive-".concat(o); }).join(" ");
+        : (_a = props.responsive) === null || _a === void 0 ? void 0 : _a.map(function (o) { return "table-responsive-".concat(o); }).join(" ");
     var tableCss = "table"
         + (props.hower ? " table-hover" : "")
         + (props.sm ? " table-sm" : "")
         + (props.bordered ? " table-bordered" : "")
-        + (props.borderless ? " table-borderless" : "");
+        + (props.borderless ? " table-borderless" : "")
+        + (props.className ? " " + props.className : "");
     var theadTypeCss = props.theadType && "table-".concat(props.theadType);
     return (_jsx("div", { className: responsiveCss, children: _jsxs("table", { className: tableCss, children: [(_b = props.caption) !== null && _b !== void 0 ? _b : _jsx("caption", { children: props.caption }), _jsx("thead", { className: theadTypeCss, children: columns
                         ? (_jsx("tr", { children: columns.map(function (o, i) { return (_jsx("th", { scope: "col", children: o.text }, generateKey("table-column"))); }) })) : (props.thead) }), _jsx("tbody", { children: items.length > 0 ? (createRenders(props.cursor, items, ItemRender)) : (_jsx("tr", { children: _jsx("td", { colSpan: columns === null || columns === void 0 ? void 0 : columns.length, children: "\u043D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445" }) })) })] }) }));
