@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { asUpdate, curry2Right } from "@k35/fp";
+import { asUpdate } from "@k35/fp";
 export var paginatorSizes = [10, 20, 50, 100];
 export var paginatorAppStateInit = {
     page: 0,
@@ -23,6 +23,5 @@ export var paginatorToFirstPage = function (state) { return (__assign(__assign({
 export var paginatorToPrevPage = function (state) { return (__assign(__assign({}, state), { page: state.page === 0 ? 0 : state.page - 1 })); };
 export var paginatorToNextPage = function (state) { return (__assign(__assign({}, state), { page: state.page + 1 })); };
 export var paginatorSetPageSize = function (state, size) { return (__assign(__assign({}, state), { size: size })); };
-export var paginatorSetPageSizeC = curry2Right(paginatorSetPageSize);
 export var paginatorSetPageSizeU = asUpdate(paginatorSetPageSize);
 //# sourceMappingURL=PaginatorAppState.js.map

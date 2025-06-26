@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useCursor } from "@k35/react-external-store";
 import { useEffect } from "react";
-import { navIsActive, navSetActiveC } from "./NavAppState";
+import { navIsActive, navSetActiveU } from "./NavAppState";
 var id = 0;
 function generateNextId() {
     return "nav-item-".concat(id++);
@@ -14,13 +14,13 @@ export var NavItem = function (_a) {
     var acitveKey = _a.acitveKey, acitve = _a.acitve, cursor = _a.cursor, children = _a.children, onChange = _a.onChange;
     useEffect(function () {
         if (acitve)
-            cursor.update(navSetActiveC(acitveKey)).push();
+            cursor.update(navSetActiveU(acitveKey)).push();
         return function () { };
     }, [acitveKey]);
     var state = useCursor(cursor);
     var isAcitve = navIsActive(state, acitveKey);
     var onClick = function () {
-        cursor.update(navSetActiveC(acitveKey)).push();
+        cursor.update(navSetActiveU(acitveKey)).push();
         if (onChange)
             onChange();
     };

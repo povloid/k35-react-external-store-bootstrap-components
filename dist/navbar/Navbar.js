@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCursor } from "@k35/react-external-store";
 import { useEffect } from "react";
-import { navbarSetActiveC, navbarSetupActivesFromWindow } from "./NavbarAppState";
+import { navbarSetActiveU, navbarSetupActivesFromWindow } from "./NavbarAppState";
 export var Navbar = function (props) {
     var cursor = props.cursor;
     var state = useCursor(cursor);
@@ -25,7 +25,7 @@ var NavbarItem = function (_a) {
     useCursor(cursor);
     var active = item.active;
     var onClick = function () {
-        cursor.update(navbarSetActiveC(item)).push();
+        cursor.update(navbarSetActiveU(item)).push();
     };
     return (_jsx("li", { className: "nav-item", children: _jsx("a", { className: "nav-link" + (active ? " active" : ""), href: item.href, onClick: onClick, children: item.text }) }));
 };
@@ -33,7 +33,7 @@ var NavbarDropdown = function (_a) {
     var _b;
     var cursor = _a.cursor, item = _a.item;
     useCursor(cursor);
-    var onClick = function () { return cursor.update(navbarSetActiveC(item)).push(); };
+    var onClick = function () { return cursor.update(navbarSetActiveU(item)).push(); };
     return (_jsxs("li", { className: "nav-item dropdown", children: [_jsx("a", { className: "nav-link dropdown-toggle", href: "# ", role: "button", "data-bs-toggle": "dropdown", "aria-expanded": "false", onClick: onClick, children: item.text }), _jsx("ul", { className: "dropdown-menu", children: (_b = item.menu) === null || _b === void 0 ? void 0 : _b.map(function (item, i) { return _jsx(NavbarDropdownMenuItem, { menuItem: item, cursor: cursor }, i); }) })] }));
 };
 var NavbarDropdownMenuItem = function (_a) {

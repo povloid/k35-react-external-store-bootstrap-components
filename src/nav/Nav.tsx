@@ -1,6 +1,6 @@
 import { Cursor, useCursor } from "@k35/react-external-store"
 import { ReactNode, useEffect } from "react"
-import { NavAppState, navIsActive, navSetActiveC } from "./NavAppState"
+import { NavAppState, navIsActive, navSetActiveU } from "./NavAppState"
 
 
 // генератор уникальных идентификаторов
@@ -42,7 +42,7 @@ export const NavItem = ({
 }) => {
 
     useEffect(() => {
-        if (acitve) cursor.update(navSetActiveC(acitveKey)).push()
+        if (acitve) cursor.update(navSetActiveU(acitveKey)).push()
         return () => { }
     }, [acitveKey])
 
@@ -51,7 +51,7 @@ export const NavItem = ({
     const isAcitve = navIsActive(state, acitveKey)
 
     const onClick = () => {
-        cursor.update(navSetActiveC(acitveKey)).push()
+        cursor.update(navSetActiveU(acitveKey)).push()
         if (onChange) onChange()
     }
 

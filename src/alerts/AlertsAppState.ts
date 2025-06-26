@@ -1,4 +1,4 @@
-import { asUpdate, curry2Right } from "@k35/fp";
+import { asUpdate } from "@k35/fp";
 import { bootstrapType } from "../types";
 
 let id: number = 0;
@@ -24,7 +24,6 @@ export const alertsAdd = (
     { type, message, id }: { type: bootstrapType; message?: string; id?: string },
 ): AlertsAppState => [...alerts, { type, message, id: id || generateNextId() }];
 
-export const alertsAddC = curry2Right(alertsAdd);
 export const alertsAddU = asUpdate(alertsAdd);
 
 export const alertsDel = (
@@ -32,5 +31,4 @@ export const alertsDel = (
     alertId: string,
 ): AlertsAppState => [...alerts.filter((a) => a.id !== alertId)];
 
-export const alertsDelC = curry2Right(alertsDel);
 export const alertsDelU = asUpdate(alertsDel);

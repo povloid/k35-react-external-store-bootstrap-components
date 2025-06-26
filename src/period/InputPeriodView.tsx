@@ -1,8 +1,8 @@
 import { Cursor, useCursor } from "@k35/react-external-store"
 import {
     InputPeriodAppState,
-    inputPeriodSetMonthC,
-    inputPeriodSetYearC,
+    inputPeriodSetMonthU,
+    inputPeriodSetYearU,
     Month,
     MONTH_MAX,
     MONTH_MIN,
@@ -35,10 +35,10 @@ export const InputPeriod = ({
                     try {
                         const year = Number.parseInt(e.target.value) as Year
 
-                        cursor.update(inputPeriodSetYearC(year)).push()
+                        cursor.update(inputPeriodSetYearU(year)).push()
 
                         if (onChange) onChange()
-                    } catch (e) {}
+                    } catch (e) { }
                 }}
             />
 
@@ -55,10 +55,10 @@ export const InputPeriod = ({
                     try {
                         const month = Number.parseInt(e.target.value) as Month
 
-                        cursor.update(inputPeriodSetMonthC(month)).push()
+                        cursor.update(inputPeriodSetMonthU(month)).push()
 
                         if (onChange) onChange()
-                    } catch (e) {}
+                    } catch (e) { }
                 }}
             />
         </div>

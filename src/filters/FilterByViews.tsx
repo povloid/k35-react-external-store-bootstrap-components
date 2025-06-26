@@ -1,6 +1,6 @@
 import { Cursor, useCursor } from "@k35/react-external-store"
 import { ReactNode } from "react"
-import { fileterBySetActiveAsC, FilterByAppState } from "./FilterByAppState"
+import { fileterBySetActiveAsU, FilterByAppState } from "./FilterByAppState"
 
 export const FiterBlock = ({
     cursor,
@@ -27,7 +27,7 @@ export const FiterBlock = ({
                             className="btn-close"
                             onClick={(e) => {
                                 e.stopPropagation()
-                                cursor.update(fileterBySetActiveAsC(false)).push()
+                                cursor.update(fileterBySetActiveAsU(false)).push()
 
                                 if (onClose) onClose()
                             }}></button>

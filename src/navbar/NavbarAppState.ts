@@ -1,4 +1,4 @@
-import { asUpdate, curry2Right } from "@k35/fp"
+import { asUpdate } from "@k35/fp"
 import { ReactNode } from "react"
 
 export type NavbarDropdownMenuItemType = "divider" | "item"
@@ -34,7 +34,6 @@ export const navbarSetActive = <T extends string>(
     return { ...state, items }
 }
 
-export const navbarSetActiveC = curry2Right(navbarSetActive)
 export const navbarSetActiveU = asUpdate(navbarSetActive)
 
 

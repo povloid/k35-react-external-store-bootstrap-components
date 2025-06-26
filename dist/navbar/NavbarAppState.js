@@ -9,12 +9,11 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-import { asUpdate, curry2Right } from "@k35/fp";
+import { asUpdate } from "@k35/fp";
 export var navbarSetActive = function (state, activeItem) {
     var items = state.items.map(function (item) { return (__assign(__assign({}, item), { active: item.href === activeItem.href })); });
     return __assign(__assign({}, state), { items: items });
 };
-export var navbarSetActiveC = curry2Right(navbarSetActive);
 export var navbarSetActiveU = asUpdate(navbarSetActive);
 export var navbarSetupActivesFromWindow = function (state) {
     var items = state.items.map(function (item) { return (__assign(__assign({}, item), { active: item.href === window.location.hash })); });

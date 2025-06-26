@@ -1,4 +1,4 @@
-import { asUpdate, curry2Right } from "@k35/fp"
+import { asUpdate } from "@k35/fp"
 
 export type Hour =
     | 0
@@ -113,12 +113,10 @@ export const inputPeriodSetValue = (_: InputPeriodAppState, state: InputPeriodAp
     ...state
 })
 
-export const inputPeriodSetValueC = curry2Right(inputPeriodSetValue)
 export const inputPeriodSetValueU = asUpdate(inputPeriodSetValue)
 
 export const inputPeriodSetYear = (state: InputPeriodAppState, year: Year) => ({ ...state, year })
 
-export const inputPeriodSetYearC = curry2Right(inputPeriodSetYear)
 export const inputPeriodSetYearU = asUpdate(inputPeriodSetYear)
 
 
@@ -127,5 +125,4 @@ export const inputPeriodSetMonth = (state: InputPeriodAppState, month: Month) =>
     month
 })
 
-export const inputPeriodSetMonthC = curry2Right(inputPeriodSetMonth)
 export const inputPeriodSetMonthU = asUpdate(inputPeriodSetMonth)

@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { ExternalStore, useCursor } from "@k35/react-external-store";
 import { createContext, useContext, useEffect } from "react";
-import { selectedHashScreen, selectedHashScreenSetC } from "./HashScreensAppState";
+import { selectedHashScreen, selectedHashScreenSetU } from "./HashScreensAppState";
 var CursorContext = createContext(new ExternalStore("none"));
 export var HashScreens = function (props) {
     var state = useCursor(props.cursor);
@@ -9,7 +9,7 @@ export var HashScreens = function (props) {
     useEffect(function () {
         var handleHash = function () {
             console.log('Выбран экран:', window.location.hash);
-            props.cursor.update(selectedHashScreenSetC(window.location.hash)).push();
+            props.cursor.update(selectedHashScreenSetU(window.location.hash)).push();
         };
         window.addEventListener("popstate", handleHash);
         window.location.hash = currentScreen;

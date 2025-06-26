@@ -7,7 +7,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 };
-import { asUpdate, curry2Right } from "@k35/fp";
+import { asUpdate } from "@k35/fp";
 var id = 0;
 function generateNextId() {
     return "alert-".concat(id++);
@@ -18,9 +18,7 @@ export var alertsAdd = function (alerts, _a) {
     var type = _a.type, message = _a.message, id = _a.id;
     return __spreadArray(__spreadArray([], alerts, true), [{ type: type, message: message, id: id || generateNextId() }], false);
 };
-export var alertsAddC = curry2Right(alertsAdd);
 export var alertsAddU = asUpdate(alertsAdd);
 export var alertsDel = function (alerts, alertId) { return __spreadArray([], alerts.filter(function (a) { return a.id !== alertId; }), true); };
-export var alertsDelC = curry2Right(alertsDel);
 export var alertsDelU = asUpdate(alertsDel);
 //# sourceMappingURL=AlertsAppState.js.map
