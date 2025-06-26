@@ -1,4 +1,4 @@
-import { asUpdate, curry2Right } from "@k35/fp"
+import { asUpdate } from "@k35/fp"
 
 export interface FilterByAppState {
     readonly title: string
@@ -15,5 +15,4 @@ export const fileterBySetActiveAs = (state: FilterByAppState, isActive: boolean)
     ...state,
     isActive
 })
-export const fileterBySetActiveAsC = curry2Right(fileterBySetActiveAs)
 export const fileterBySetActiveAsU = asUpdate(fileterBySetActiveAs)

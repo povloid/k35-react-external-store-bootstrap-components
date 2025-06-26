@@ -24,10 +24,6 @@ export declare const paginatorSetPageSize: (state: PaginatorAppState, size: numb
     size: number;
     page: number;
 };
-export declare const paginatorSetPageSizeC: (a2: number) => (a1: PaginatorAppState) => {
-    size: number;
-    page: number;
-};
 export declare const paginatorSetPageSizeU: (arg2: number) => (arg1: PaginatorAppState) => {
     size: number;
     page: number;

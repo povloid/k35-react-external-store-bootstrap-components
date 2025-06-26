@@ -1,6 +1,6 @@
 import { Cursor, useCursor } from "@k35/react-external-store";
 import { ReactNode, useEffect } from "react";
-import { NavbarAppState, NavbarDropdownMenuItemState, NavbarItemState, navbarSetActiveC, navbarSetupActivesFromWindow } from "./NavbarAppState";
+import { NavbarAppState, NavbarDropdownMenuItemState, NavbarItemState, navbarSetActiveU, navbarSetupActivesFromWindow } from "./NavbarAppState";
 
 export const Navbar = <T extends string,>(props: {
     brand: {
@@ -64,7 +64,7 @@ const NavbarItem = <T extends string,>({
     const active = item.active
 
     const onClick = () => {
-        cursor.update(navbarSetActiveC(item)).push()
+        cursor.update(navbarSetActiveU(item)).push()
     }
 
     return (
@@ -85,7 +85,7 @@ const NavbarDropdown = <T extends string,>({
 
     useCursor(cursor)
 
-    const onClick = () => cursor.update(navbarSetActiveC(item)).push()
+    const onClick = () => cursor.update(navbarSetActiveU(item)).push()
 
     return (
         <li className="nav-item dropdown">

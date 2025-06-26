@@ -16,10 +16,6 @@ export declare const fileterBySetActiveAs: (state: FilterByAppState, isActive: b
     isActive: boolean;
     title: string;
 };
-export declare const fileterBySetActiveAsC: (a2: boolean) => (a1: FilterByAppState) => {
-    isActive: boolean;
-    title: string;
-};
 export declare const fileterBySetActiveAsU: (arg2: boolean) => (arg1: FilterByAppState) => {
     isActive: boolean;
     title: string;

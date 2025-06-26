@@ -1,4 +1,4 @@
-import { asUpdate, curry2Right } from "@k35/fp"
+import { asUpdate } from "@k35/fp"
 
 export const paginatorSizes: number[] = [10, 20, 50, 100]
 
@@ -28,5 +28,4 @@ export const paginatorToNextPage = (state: PaginatorAppState) => ({
 
 export const paginatorSetPageSize = (state: PaginatorAppState, size: number) => ({ ...state, size })
 
-export const paginatorSetPageSizeC = curry2Right(paginatorSetPageSize)
 export const paginatorSetPageSizeU = asUpdate(paginatorSetPageSize)

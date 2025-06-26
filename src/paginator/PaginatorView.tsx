@@ -3,7 +3,7 @@ import { ChangeEvent } from "react";
 import { IconMdi } from "../icon/IconMdi";
 import {
     PaginatorAppState,
-    paginatorSetPageSizeC,
+    paginatorSetPageSizeU,
     paginatorSizes,
     paginatorToFirstPage,
     paginatorToNextPage,
@@ -30,7 +30,7 @@ export const Paginator = (props: { cursor: Cursor<PaginatorAppState>; onChange?:
 
     const selectSize = (e: ChangeEvent<HTMLSelectElement>) => {
         const size = parseInt(e.target.value)
-        props.cursor.update(paginatorSetPageSizeC(size)).push()
+        props.cursor.update(paginatorSetPageSizeU(size)).push()
         if (props.onChange) props.onChange()
     }
 

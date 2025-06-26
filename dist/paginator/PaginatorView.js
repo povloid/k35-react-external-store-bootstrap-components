@@ -1,7 +1,7 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useCursor } from "@k35/react-external-store";
 import { IconMdi } from "../icon/IconMdi";
-import { paginatorSetPageSizeC, paginatorSizes, paginatorToFirstPage, paginatorToNextPage, paginatorToPrevPage } from "./PaginatorAppState";
+import { paginatorSetPageSizeU, paginatorSizes, paginatorToFirstPage, paginatorToNextPage, paginatorToPrevPage } from "./PaginatorAppState";
 export var Paginator = function (props) {
     var _a = useCursor(props.cursor), page = _a.page, size = _a.size;
     var goToFirstPage = function () {
@@ -21,7 +21,7 @@ export var Paginator = function (props) {
     };
     var selectSize = function (e) {
         var size = parseInt(e.target.value);
-        props.cursor.update(paginatorSetPageSizeC(size)).push();
+        props.cursor.update(paginatorSetPageSizeU(size)).push();
         if (props.onChange)
             props.onChange();
     };

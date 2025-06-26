@@ -1,4 +1,4 @@
-import { asUpdate, curry2Right } from "@k35/fp";
+import { asUpdate } from "@k35/fp";
 
 
 export type InputDateAppState = string
@@ -20,5 +20,4 @@ export const inputDateSetValue = (state: InputDateAppState, date?: Date): InputD
     return `${year}-${month}-${day}`
 }
 
-export const inputDateSetValueC = curry2Right(inputDateSetValue)
 export const inputDateSetValueU = asUpdate(inputDateSetValue)

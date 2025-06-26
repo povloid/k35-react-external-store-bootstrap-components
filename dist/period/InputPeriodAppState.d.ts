@@ -21,10 +21,6 @@ export declare const inputPeriodSetValue: (_: InputPeriodAppState, state: InputP
     year: Year;
     month: Month;
 };
-export declare const inputPeriodSetValueC: (a2: InputPeriodAppState) => (a1: InputPeriodAppState) => {
-    year: Year;
-    month: Month;
-};
 export declare const inputPeriodSetValueU: (arg2: InputPeriodAppState) => (arg1: InputPeriodAppState) => {
     year: Year;
     month: Month;
@@ -33,19 +29,11 @@ export declare const inputPeriodSetYear: (state: InputPeriodAppState, year: Year
     year: Year;
     month: Month;
 };
-export declare const inputPeriodSetYearC: (a2: Year) => (a1: InputPeriodAppState) => {
-    year: Year;
-    month: Month;
-};
 export declare const inputPeriodSetYearU: (arg2: Year) => (arg1: InputPeriodAppState) => {
     year: Year;
     month: Month;
 };
 export declare const inputPeriodSetMonth: (state: InputPeriodAppState, month: Month) => {
-    month: Month;
-    year: Year;
-};
-export declare const inputPeriodSetMonthC: (a2: Month) => (a1: InputPeriodAppState) => {
     month: Month;
     year: Year;
 };
