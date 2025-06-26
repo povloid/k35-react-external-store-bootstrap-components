@@ -2,18 +2,18 @@
 # yarn lockfile v1
 
 
-"@k35/fp@^1.1.0":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@k35/fp/-/fp-1.0.3.tgz#d50e993310d4d1213563d5070987ddc97f48c173"
-  integrity sha512-11bjgSpMY148vLu1LgXSofxYCNY1U/97cv6oS+Ox1iMC0qfGjGrbcgvIxEVXVX9y+f281jnX6bGUDK+wBFCbLQ==
+"@k35/fp@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@k35/fp/-/fp-1.1.1.tgz#50db1a49b183823a35a77ac295481f36d4980789"
+  integrity sha512-76HdjPOOokIKt1ZDMIKMaJ8Ij2bUzIC9myJyLxM7Cl5RqDPhaL1E0uaJxPU7wJYuYm/ESwNhG54YG5V+UtDwdQ==
   dependencies:
     "@types/node" "^16.7.13"
     typescript "^5.6.2"
 
-"@k35/react-external-store@^1.1.0":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@k35/react-external-store/-/react-external-store-1.0.2.tgz#c92c6c5361a12e6f09ca24bc0956c4d078a81693"
-  integrity sha512-UXckQWinSLfUCOi713BUVceGRAhLAe6YZnGONFifPyUqV+9z411fI/gd1f+ZZIj6RMLU0pBd9xgxAwuakHoNRQ==
+"@k35/react-external-store@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@k35/react-external-store/-/react-external-store-1.1.1.tgz#ced2eec1d72984554f8494f88ab2d535afff549d"
+  integrity sha512-mQ3K+l8qo1oOY/WK6+PDpyz23n/XHadUln0z3wfsnTi/hjRoY52AFX4O6Q6bXd5Azjrp3ttlJkSygbfHdqvMnA==
 
 "@types/node@^16.7.13":
   version "16.18.112"
