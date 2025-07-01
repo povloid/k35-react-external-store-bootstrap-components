@@ -1,6 +1,7 @@
 import { Cursor, ExternalStore, useCursor } from "@k35/react-external-store";
 import { createContext, PropsWithChildren, ReactNode, useContext, useEffect } from "react";
 import { HashScreensAppState, selectedHashScreen, selectedHashScreenSetU } from "./HashScreensAppState";
+import { getHash, getHashAndParams } from "./HashTools";
 
 
 const CursorContext = createContext<Cursor<HashScreensAppState<string>>>(new ExternalStore("none"));
@@ -23,8 +24,13 @@ export const HashScreens = <T extends string,>(props: {
     useEffect(() => {
 
         const handleHash = () => {
-            console.log('Выбран экран:', window.location.hash)
-            props.cursor.update(selectedHashScreenSetU(window.location.hash as T)).push()
+
+            const hash = window.location.hash
+            const [screen, params] = getHashAndParams(hash)
+
+            console.log('Выбран экран:', screen, params && " с параметрами " + params)
+
+            props.cursor.update(selectedHashScreenSetU(hash as T)).push()
         }
 
         window.addEventListener("popstate", handleHash);
@@ -58,10 +64,8 @@ export const HashScreen = <T extends string,>(
 ) => {
 
     const cursor = useContext(CursorContext)
-
     const state = useCursor(cursor)
-    const currentScreen = selectedHashScreen(state)
 
-    return currentScreen === props.hash ? props.children : null
+    return getHash(state) === props.hash ? props.children : null
 }
 

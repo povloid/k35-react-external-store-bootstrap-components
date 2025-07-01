@@ -1,5 +1,6 @@
 import { asUpdate } from "@k35/fp"
 import { ReactNode } from "react"
+import { getWindowLocationHash } from "../hash-screens/HashTools"
 
 export type NavbarDropdownMenuItemType = "divider" | "item"
 
@@ -47,4 +48,4 @@ export const navbarSetupActivesFromWindow = <T extends string>(
 }
 
 export const navbarGetCurrentDefaultScreen = <T extends string>(state: NavbarAppState<T>, defaultScreen: T) =>
-    state.items.map(o => o.href as T).find(o => o === window.location.hash) ?? defaultScreen
+    state.items.map(o => o.href as T).find(o => o === getWindowLocationHash()) || defaultScreen

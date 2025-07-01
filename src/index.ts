@@ -7,6 +7,7 @@ export * from "./button/StandartButton"
 
 export * from "./hash-screens/HashScreens"
 export * from "./hash-screens/HashScreensAppState"
+export * from "./hash-screens/HashTools"
 
 export * from "./icon/IconMdi"
 export * from "./icon/IconMdiIname"
