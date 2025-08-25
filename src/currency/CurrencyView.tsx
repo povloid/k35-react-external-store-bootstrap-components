@@ -6,7 +6,7 @@ export const Currency = ({
     currency?: string
 }) => {
 
-    if (value === 0) return null;
+    if (value === undefined || value === null || value === 0) return;
 
     const code = (currency ?? "USD");
     const str = value?.toLocaleString(undefined, { style: "currency", currency: code, currencyDisplay: "code" })
